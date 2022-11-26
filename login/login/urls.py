@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic.base import TemplateView
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from login import views 
+from login import views
 
 
 urlpatterns = [
@@ -28,17 +28,15 @@ urlpatterns = [
     path('due_loans/', views.due, name='due_loans'),
     path('help/', views.help, name='help'),
     path('logout/', views.logout, name='logout'),
-    path('principal/', views.payments, name='principal'),
+    path('principal/', views.principal, name='principal'),
     path('profile/', views.profile, name='profile'),
     path('purchase/', views.purchase, name='purchase'),
-   
+    path('payments/', views.payments, name='payments'),
+
 ]
 urlpatterns += staticfiles_urlpatterns()
-
 
 
 admin.site.site_header = "SAIAH"
 admin.site.site_title = "SAIAH"
 admin.site.index_title = "SAIAH"
-
-

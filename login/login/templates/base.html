@@ -4,35 +4,58 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> {% load static %}¬¬¬
-    <!-- <link rel="" /> -->
-    <link rel="stylesheet" href="{% static '/style.css' %}" /> {% block title %}Home{% endblock %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> {% load static %}
+    <link rel="stylesheet" href="{% static '/style.css' %}" />
+    <!-- {% block title %}Home{% endblock %} -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type='text/css'>
 
 
     <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            flex: 1;
+            flex-direction: row;
+            display: flex;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
         .sidenav {
-            position: absolute;
             z-index: 1;
-            width: 186px;
-            height: 100%;
+            width: 196px;
+            height: 100vh;
             left: 0px;
             top: 0;
             overflow-x: hidden;
             padding-top: 0px;
             background: #FFFFFF;
-            font-family: 'Poppins';
-            font-style: normal;
-            font-weight: 600;
-            font-size: 14px;
+            font-size: 12px;
             line-height: 21px;
+            padding: 0 20px;
+            color: #808080;
+            display: flex;
+            flex-direction: column;
+            row-gap: 15px;
         }
-        /* .sidenav a {
-            padding: 6px 8px 6px 16px;
+        
+        .sidenav a {
+            /* padding: 20px 0px; */
             text-decoration: none;
-            font-size: 25px;
+            font-size: 13px;
             color: #818181;
-            display: block;
-        }*/
+            /* display: block; */
+        }
+        
+        .sidenav a img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
         
         .sidenav hover {
             color: #f1f1f1;
@@ -48,24 +71,21 @@
         .main {
             margin-left: 160px;
             padding: 0px 10px;
+            display: flex;
         }
         
         .cards {
-            position: absolute;
-            width: 450px;
-            height: 45%;
-            left: 190px;
-            top: 55px;
             background: #FFFFFF;
             border-radius: 15px;
+            padding: 20px;
+            margin-top: 23px;
         }
         
         .account {
-            position: absolute;
             width: 450px;
-            height: 45%;
+            height: 40%;
             left: 190px;
-            top: 338px;
+            top: 368px;
             background: #FFFFFF;
             border-radius: 15px;
             font-family: 'Poppins';
@@ -77,55 +97,55 @@
         
         .details {
             box-sizing: border-box;
-            position: absolute;
             width: 200px;
             height: 321px;
             left: 328px;
             top: 604px;
-            border: 1.3px solid rgba(196, 196, 196, 0.5);
+            border: 1.3008px solid rgba(196, 196, 196, 0.5);
             border-radius: 15px;
         }
         
         .summary {
-            position: absolute;
-            width: 620px;
-            height: 100%;
-            left: 645px;
-            top: 0px;
-            background: #FFFFFF;
-            font-family: 'Poppins';
-            font-style: normal;
-            font-weight: 600;
-            font-size: 20px;
-            line-height: 30px;
+            display: flex;
+            column-gap: 30px;
         }
         
-        .vl {
-            border-left: 6px solid #F8F8F8;
-            height: 600px;
-            position: absolute;
-            left: 50%;
-            margin-left: -3px;
-            top: 60px;
+        .summary p {
+            font-size: 12px;
+        }
+        
+        .search {
+            width: 187px;
+            heigh: auto;
+            border-radius: 18px;
+            padding: 6px 10px;
+            border: 1px solid #C4C4C4;
+            border-radius: 15px;
+        }
+        
+        .input {
+            left: 463px;
+            top: 50px;
+            border-radius: 18px;
+            padding: 6px 10px
         }
         
         .heading {
             color: #298097;
-            font-size: 18px;
-        }
-        
-        .h3 {
-            color: #fdb90d;
-            font-size: 14px;
+            font-family: Poppins;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 36px;
+            letter-spacing: 0em;
+            text-align: left;
         }
         
         .texts {
-            font-family: 'Poppins';
             font-style: normal;
-            font-weight: 600;
-            font-size: 14px;
-            line-height: 21px;
-            color: #808080;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 13px;
+            color: #919499;
         }
         
         .button {
@@ -141,76 +161,220 @@
             margin: 4px 2px;
             cursor: pointer;
         }
-    </style>
-    {% block content %} {% load static %}
+        
+        .main-container {
+            /* margin-left: 200px; */
+            display: flex;
+            column-gap: 20px;
+            flex-direction: row;
+            padding-left: 20px;
+            width: 100%;
+        }
+        
+        .account-details {
+            min-width: 442px;
+        }
+        
+        .account-details h2 {
+            color: #298097;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 36px;
+            letter-spacing: 0em;
+            text-align: left;
+        }
+        
+        .account-details .account-cards {
+            display: flex;
+            flex-direction: row;
+        }
+        
+        .account-details .account-cards img {
+            width: 205px;
+        }
+        
+        .content-flex {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .add-card-button {
+            color: #FCBA2D;
+            background: none;
+            outline: none;
+            border: none;
+            font-weight: 600;
+        }
+        
+        .card-intro {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        
+        .text-input {
+            display: flex;
+            flex-direction: column;
+            row-gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .text-input label {
+            font-size: 12px;
+            color: #919499;
+        }
+        
+        .text-input input {
+            border: 1px solid #C4C4C4;
+            border-radius: 7.65px;
+            padding: 10px;
+        }
+        
+        .summary-button {
+            padding: 19px 0px;
+            width: 200px;
+            border-radius: 14px;
+            border: none;
+            background-color: #F8AD15;
+            color: white;
+        }
+        
+        .border {
+            border: 1px solid #C4C4C4;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 23px;
+        }
+    </style> {% block content %} {% load static %}
 
     <body bgcolor=" 		#F5F5F5">
 
 
-        <link rel="stylesheet " href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css ">
+        <div class="sidenav">
 
-        <div class="sidenav ">
-
-
-            <h2 class="heading">&emsp;SAIAH
-                <img src="{% static 'images\dsn.png'%}" width="25px" height="20px" alt=" dsn " /><br><br>
+            <h2 class="heading">SAIAH
+                <img src="{% static 'images\dsn.png'%}" width="25px" height="20px" alt=" dsn " /><br>
             </h2>
 
             {% if user.is_authenticated %}
-
-            <h3 style="color:#034B5E ">&emsp;General</h3>
-            &emsp;<a href="/dashboard " style="color:#808080" target="_parent"><i class="fa fa-fw fa-home "></i>Dashboard<br><br></a> &emsp;
-            <a href="/purchase " style="color:#808080" target="_parent"><i class="fa fa-fw fa-credit-card "></i>Purchase Loan<br><br></a> &emsp;
-            <a href="/due_loans " style="color:#808080" target="_parent">Due Loans<br><br></a> &emsp;
-            <a href="/principal " style="color:#808080" target="_parent"><i class="fa fa-fw fa-receipt "></i>Principal<br><br></a> &emsp;
-            <a href="/profile " style="color:#808080" target="_parent"><i class="fa fa-fw fa-user "></i>Profile<br><br></a>
-            <hr> &emsp;
-            <h3 style="color:#034B5E ">&emsp;Other</h3>
-            &emsp;<a href=" help " style="color:#808080"><i class="fa-light fa-circle-info"></i></i>Help &
-            Support<br><br><br><br></a>
+            <h3 style="color:#034B5E ">General</h3>
+            <a href="/dashboard"><img src="{% static 'images\home.svg'%}" /> Dashboard </a>
+            <a href="/purchase"><img src="{% static 'images\card-pos.svg'%}" /> Purchase Loan </a>
+            <a href="/due_loans"><img src="{% static 'images\dl.svg'%}" /> Due Loans </a>
+            <a href="/principal"><img src="{% static 'images\po.svg'%}" /> Principal Outstanding</a>
+            <a href="/payments"><img src="{% static 'images\p.svg'%}" /> Payments </a>
+            <a href="/profile"><img src="{% static 'images\Profile.svg'%}" /> Profile </a>
+            <div></div>
+            <h3 style="color:#034B5E ">Other</h3>
+            <a href="/help "><img src="{% static 'images\hs.svg'%}" />Help & Support
+                <br><br><br><br></a>
 
             <p>
-                &emsp;<a href="{% url 'logout' %} " style="color:#808080"><i class="fa-solid fa-right-from-bracket"></i>Log
-                Out</a>
+                <a href="{% url 'logout' %} "><img src="{% static 'images\lo.svg'%}" />Log Out
+                </a>
             </p>{% else %}
             <p>You are not logged in</p>
-            <a href="{% url 'login' %} " style="color:#808080">Log In</a> {% endif %}
+            <a href="{% url 'login' %} ">Log In</a> {% endif %}
 
         </div>
 
-        <div class="main">
+        <div class="main-container">
+            <div class="account-details">
+                <span class="content-flex">
+                <span>
+                    <h2 class="">Manage Loan Account</h2>
+                </span>
+                <input type="search" class="search" id=" search " name="search " placeholder="search.. ">
+                </span>
 
-            <div class="cards ">
-                <h2 class="heading ">My Cards</h2>
-                <h3 class="h3">+Add New </h3>
+                <div class="cards">
+                    <span class="card-intro">
+                    <h2 class="">My Card</h2>
+                    <button class="add-card-button" onclick=" alert( 'Add New') ">+ Add new card</button>
+                </span>
+                    <div class="account-cards">
+                        <img src="{% static 'images\card2.png'%} " alt="card2 " />
+                        <img src="{% static 'images\card1.png'%} " alt=" card1 " />
+                    </div>
+                </div>
 
-
-                <img src="{% static 'images\card1.png'%}" width="223px" height="150px" alt=" card1 " />
-                <img src="{% static 'images\card2.png'%} " width="223px" height="150px" alt="card2 " />
+                <div class=" ">
+                    <h2 class="">Add New Account</h2>
+                    <form>
+                        <span class="text-input ">
+                        <label for="anumber " class="texts ">Account</label>
+                        <input type="text " class="input " id="accnumber " name="accnumber " value=" " />
+                    </span>
+                        <span class="text-input ">
+                        <label for="anumber " class="texts ">Account</label>
+                        <input type="text " class="input " id="accnumber " name="accnumber " value=" " />
+                    </span>
+                    </form>
+                </div>
             </div>
+            <div class="summary">
+                <div>
+                    <h2 class="heading ">SAIAH Master Card
+                    </h2>
+                    <p class="">Tansaction Details</p>
+                    <span class=" text-input ">
+                    <label for="anumber " class="texts ">Account Number</label>
+                    <input type="text " class="input " id="accnumber " name="Account Number " value=" " />
+                </span><span class="text-input ">
+                    <label for="aname " class="texts ">Account Name</label>
+                    <input type="text " class="input " id="accname " name="Account Name " value=" " />
+                </span><span class="text-input ">
+                    <label for="i_rate " class="texts ">Interest Rate</label>
+                    <input type="text " class="input " id="i_rate " name="interest Rate " value=" " />
+                </span><span class="text-input ">
+                    <label for="anumber " class="texts ">Overdue Limit</label>
+                    <input type="text " class="input " id="o_limit " name="Overdue Limit " value=" " />
+                </span>
 
-            <div class=" account ">
-                <h2 class="heading ">&emsp;Add New Account</h2>
 
-                <h2 class="texts ">&emsp;&emsp;Account Name</h2>
-                <h2 class="texts">&emsp;&emsp;Account Number</h2>
+
+
+                    <button type="save " class=" button " onclick=" alert( 'Would you like to save changes? ') ">Save
+                    Changes</button>
+                    <div class="vl "></div>
+                </div>
+                <div>
+
+                    <h2 class="heading ">
+                        Loan Summary
+                    </h2>
+                    <p class="">Check First Before Transfer</p>
+
+                    <span class="content-flex">
+                    <p>Loan Balance</p>
+                    <p style="font-weight: 600;">KES 20,000.00</p>
+                </span>
+                    <span class="content-flex">
+                    <p>Interest Charged</p>
+                    <p style="font-weight: 600;">KES 20,000.00</p>
+                </span>
+                    <p>(Includes interest fee)</p>
+
+                    <button type="save " class=" summary-button " onclick=" alert( 'Would you like to save changes? ') ">Save
+                    Changes</button>
+                    <div class="vl "></div>
+                </div>
+
             </div>
         </div>
 
-        <div class=" summary ">
-            <h2 class="heading ">SAIAH Master Card &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Loan Summary</h2>
-            <h2 class="texts ">Tansaction Details</h2>
-            <h2 class="texts ">&ensp;Account Number&emsp;&emsp;Account Name<br><br><br></h2>
 
-            <h2 class="texts ">&ensp;Interest Rate&emsp;&emsp;Overdue Limit<br><br><br><br><br></h2>
-
-
-            <button type="save " class=" button " onclick=" alert( 'Would you like to save changes? ') ">Save Changes</button>
-            <div class="vl "></div>
-
-        </div>
     </body>
     {% endblock content %}
+
+</html>
+
+</html>
+
+</html>
+
 
 </html>
 
