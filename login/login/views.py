@@ -25,7 +25,7 @@ def index(request):
                'Interest Rate': interest_rate, 'Overdue Limit': overdue_limit,
                'Save': savebutton}
 
-    return render(request, 'login/base.html', context)
+   
 
 
 def dashboard(request):
@@ -58,3 +58,7 @@ def profile(request):
 
 def purchase(request):
     return render(request, 'purchase.html')
+
+
+def login(request):
+    return render(request, 'login.html')

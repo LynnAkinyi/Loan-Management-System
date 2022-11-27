@@ -32,6 +32,7 @@ urlpatterns = [
     path('profile/', views.profile, name='profile'),
     path('purchase/', views.purchase, name='purchase'),
     path('payments/', views.payments, name='payments'),
+    path('login/', views.index, name='login'),
 
 ]
 urlpatterns += staticfiles_urlpatterns()

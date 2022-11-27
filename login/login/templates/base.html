@@ -258,7 +258,7 @@
                 <img src="{% static 'images\dsn.png'%}" width="25px" height="20px" alt=" dsn " /><br>
             </h2>
 
-            {% if user.is_authenticated %}
+            <!-- {% if user.is_authenticated %} -->
             <h3 style="color:#034B5E ">General</h3>
             <a href="/dashboard"><img src="{% static 'images\home.svg'%}" /> Dashboard </a>
             <a href="/purchase"><img src="{% static 'images\card-pos.svg'%}" /> Purchase Loan </a>
@@ -274,9 +274,9 @@
             <p>
                 <a href="{% url 'logout' %} "><img src="{% static 'images\lo.svg'%}" />Log Out
                 </a>
-            </p>{% else %}
+                <!-- </p>{% else %}
             <p>You are not logged in</p>
-            <a href="{% url 'login' %} ">Log In</a> {% endif %}
+            <a href="{% url 'login' %} ">Log In</a> {% endif %} -->
 
         </div>
 
