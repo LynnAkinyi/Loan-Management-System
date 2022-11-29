@@ -4,12 +4,98 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> {% load static %}
     <title>Profile</title>
+    <style>
+        body {
+            margin-top: 20px;
+            background: #a7e0ef;
+        }
+        
+        .avatar {
+            width: 200px;
+            height: 230px;
+        }
+        
+        .if {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
 </head>
 
 <body>
 
+    <div class="container bootstrap snippets bootdey">
+        <h1 class="text-primary">Edit Profile</h1>
+        <hr>
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-3">
+                <div class="text-center">
+                    <img src="{% static 'images\if.jfif'%} " class="if" alt="if " />
+                    <h6>Upload a different photo...</h6>
+
+                    <input type="file" class="form-control">
+                </div>
+            </div>
+
+            <!-- edit form column -->
+            <div class="col-md-9 personal-info">
+
+                <h3>Personal info</h3>
+
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">First name:</label>
+                        <div class="col-lg-8">
+                            <input class="form-control" type="text" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Last name:</label>
+                        <div class="col-lg-8">
+                            <input class="form-control" type="text" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Company:</label>
+                        <div class="col-lg-8">
+                            <input class="form-control" type="text" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Email:</label>
+                        <div class="col-lg-8">
+                            <input class="form-control" type="text" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Time Zone:</label>
+                        <div class="col-lg-8">
+                            <div class="ui-select">
+                                <select id="user_time_zone" class="form-control">
+                                <option value="Africa/Nairobi" label="Nairobi">Nairobi</option>
+                                <option value="Africa/Accra" label="Accra">Accra</option>
+                                <option value="Africa/Addis_Ababa" label="Addis Ababa">Addis Ababa</option>
+                                <option value="Africa/Harare" label="Harare">Harare</option>
+                                <option value="Africa/Johannesburg" label="Johannesburg">Johannesburg</option>
+                                <option value="Africa/Kampala" label="Kampala">Kampala</option>
+                                <option value="Africa/Khartoum" label="Khartoum">Khartoum</option>
+                                <option value="Africa/Kigali" label="Kigali">Kigali</option>
+                                <option value="Africa/Kinshasa" label="Kinshasa">Kinshasa</option>
+                                <option value="Africa/Lagos" label="Lagos">Lagos</option>
+                                <option value="Africa/Mogadishu" label="Mogadishu">Mogadishu</option>
+                                
+                            </select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <hr>
 </body>
 
 </html>

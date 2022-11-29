@@ -266,7 +266,9 @@
             <a href="/principal"><img src="{% static 'images\po.svg'%}" /> Principal Outstanding</a>
             <a href="/payments"><img src="{% static 'images\p.svg'%}" /> Payments </a>
             <a href="/profile"><img src="{% static 'images\Profile.svg'%}" /> Profile </a>
-            <div></div>
+            <div>
+                <hr>
+            </div>
             <h3 style="color:#034B5E ">Other</h3>
             <a href="/help "><img src="{% static 'images\hs.svg'%}" />Help & Support
                 <br><br><br><br></a>
@@ -292,7 +294,7 @@
                 <div class="cards">
                     <span class="card-intro">
                     <h2 class="">My Card</h2>
-                    <button class="add-card-button" onclick=" alert( 'Add New') ">+ Add new card</button>
+                    <button class="add-card-button" type="submit" onclick=" alert( 'Add New') ">+ Add new card</button>
                 </span>
                     <div class="account-cards">
                         <img src="{% static 'images\card2.png'%} " alt="card2 " />
@@ -304,13 +306,14 @@
                     <h2 class="">Add New Account</h2>
                     <form>
                         <span class="text-input ">
-                        <label for="anumber " class="texts ">Account</label>
+                        <label for="anumber " class="texts ">Account Name</label>
                         <input type="text " class="input " id="accnumber " name="accnumber " value=" " />
                     </span>
                         <span class="text-input ">
-                        <label for="anumber " class="texts ">Account</label>
+                        <label for="anumber " class="texts ">Account Number</label>
                         <input type="text " class="input " id="accnumber " name="accnumber " value=" " />
                     </span>
+                        <button class="add-card-button" type="submit" onclick=" alert( 'Add New') ">Add Account</button>
                     </form>
                 </div>
             </div>
@@ -336,7 +339,7 @@
 
 
 
-                    <button type="save " class=" button " onclick=" alert( 'Would you like to save changes? ') ">Save
+                    <button type="submit" class=" button " onclick=" alert( 'Would you like to save changes? ') ">Save
                     Changes</button>
                     <div class="vl "></div>
                 </div>
@@ -355,9 +358,12 @@
                     <p>Interest Charged</p>
                     <p style="font-weight: 600;">KES 20,000.00</p>
                 </span>
+                    <div>
+                        <hr>
+                    </div>
                     <p>(Includes interest fee)</p>
 
-                    <button type="save " class=" summary-button " onclick=" alert( 'Would you like to save changes? ') ">Save
+                    <button type="submit" class=" summary-button " onclick=" alert( 'Would you like to save changes? ') ">Save
                     Changes</button>
                     <div class="vl "></div>
                 </div>
