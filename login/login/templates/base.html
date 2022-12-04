@@ -258,7 +258,7 @@
                 <img src="{% static 'images\dsn.png'%}" width="25px" height="20px" alt=" dsn " /><br>
             </h2>
 
-            <!-- {% if user.is_authenticated %} -->
+
             <h3 style="color:#034B5E ">General</h3>
             <a href="/dashboard"><img src="{% static 'images\home.svg'%}" /> Dashboard </a>
             <a href="/purchase"><img src="{% static 'images\card-pos.svg'%}" /> Purchase Loan </a>
@@ -276,9 +276,6 @@
             <p>
                 <a href="{% url 'logout' %} "><img src="{% static 'images\lo.svg'%}" />Log Out
                 </a>
-                <!-- </p>{% else %}
-            <p>You are not logged in</p>
-            <a href="{% url 'login' %} ">Log In</a> {% endif %} -->
 
         </div>
 
@@ -321,51 +318,52 @@
                 <div>
                     <h2 class="heading ">SAIAH Master Card
                     </h2>
-                    <p class="">Tansaction Details</p>
-                    <span class=" text-input ">
-                    <label for="anumber " class="texts ">Account Number</label>
-                    <input type="text " class="input " id="accnumber " name="Account Number " value=" " />
-                </span><span class="text-input ">
-                    <label for="aname " class="texts ">Account Name</label>
-                    <input type="text " class="input " id="accname " name="Account Name " value=" " />
-                </span><span class="text-input ">
-                    <label for="i_rate " class="texts ">Interest Rate</label>
-                    <input type="text " class="input " id="i_rate " name="interest Rate " value=" " />
-                </span><span class="text-input ">
-                    <label for="anumber " class="texts ">Overdue Limit</label>
-                    <input type="text " class="input " id="o_limit " name="Overdue Limit " value=" " />
-                </span>
+                    <form action="/payments/" method="POST">
+                        {% csrf_token %} {{ form.as_p }}
+                        <p class="">Tansaction Details</p>
+                        <span class=" text-input ">
+                        <label for="anumber " class="texts ">Account Number</label>
+                        <input type="text " class="input " id="accnumber " name="Account Number " value=" " />
+                    </span><span class="text-input ">
+                        <label for="aname " class="texts ">Account Name</label>
+                        <input type="text " class="input " id="accname " name="Account Name " value=" " />
+                    </span><span class="text-input ">
+                        <label for="i_rate " class="texts ">Interest Rate</label>
+                        <input type="text " class="input " id="i_rate " name="interest Rate " value=" " />
+                    </span><span class="text-input ">
+                        <label for="anumber " class="texts ">Overdue Limit</label>
+                        <input type="text " class="input " id="o_limit " name="Overdue Limit " value=" " />
+                    </span>
 
+                        <button type="submit" class=" button " onclick=" alert( 'Would you like to save changes? ') ">Save
+                        Changes</button>
+                    </form>
 
-
-
-                    <button type="submit" class=" button " onclick=" alert( 'Would you like to save changes? ') ">Save
-                    Changes</button>
-                    <div class="vl "></div>
                 </div>
                 <div>
+                    <form action="/purchase">
 
-                    <h2 class="heading ">
-                        Loan Summary
-                    </h2>
-                    <p class="">Check First Before Transfer</p>
+                        <h2 class="heading ">
+                            Loan Summary
+                        </h2>
+                        <p class="">Check First Before Transfer</p>
 
-                    <span class="content-flex">
-                    <p>Loan Balance</p>
-                    <p style="font-weight: 600;">KES 20,000.00</p>
-                </span>
-                    <span class="content-flex">
-                    <p>Interest Charged</p>
-                    <p style="font-weight: 600;">KES 20,000.00</p>
-                </span>
-                    <div>
-                        <hr>
-                    </div>
-                    <p>(Includes interest fee)</p>
+                        <span class="content-flex">
+                        <p>Loan Balance</p>
 
-                    <button type="submit" class=" summary-button " onclick=" alert( 'Would you like to save changes? ') ">Save
-                    Changes</button>
-                    <div class="vl "></div>
+                    </span>
+                        <span class="content-flex">
+                        <p>Interest Charged</p>
+
+                    </span>
+                        <div>
+                            <hr>
+                        </div>
+                        <p>(Includes interest fee)</p>
+
+                        <button type="submit" class=" summary-button " onclick=" alert( 'Would you like to check? ') ">Check</button>
+                    </form>
+
                 </div>
 
             </div>
@@ -374,14 +372,5 @@
 
     </body>
     {% endblock content %}
-
-</html>
-
-</html>
-
-</html>
-
-
-</html>
 
 </html>

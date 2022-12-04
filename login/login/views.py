@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import render
-
+from login.models import Purchase
 
 def index(request):
     template = loader.get_template('login/index.html')
@@ -29,6 +29,44 @@ def index(request):
 
 
 def dashboard(request):
+    return render(request, 'dashboard.html')
+
+def base(request):
+    if request.method=="POST":
+        account_number = request.POST.get('Account Number')
+
+        account_name = request.POST.get('Account Name')
+
+        interest_rate = request.POST.get('Interest Rate')
+
+        overdue_limit = request.POST.get('Overdue Limit')
+
+        savebutton = request.POST.get('Submit')
+        print(account_number,account_name,interest_rate,overdue_limit,savebutton)
+        ins = Purchase(Account_Number=account_number, Account_Name=account_name, Interest_Rate=interest_rate, Overdue_Limit=overdue_limit)
+        ins.save()
+        print("The data has been processed successfully")
+
+        context = {'Account Number': account_number, 'Account Name': account_name,
+                   'Interest Rate': interest_rate, 'Overdue Limit': overdue_limit,
+                   'Save': savebutton}
+
+        return render(request, 'base.html', context)
+        account_number = request.POST.get('Account Number')
+
+        account_name = request.POST.get('Account Name')
+
+        interest_rate = request.POST.get('Interest Rate')
+
+        overdue_limit = request.POST.get('Overdue Limit')
+
+        savebutton = request.POST.get('Submit')
+
+        context = {'Account Number': account_number, 'Account Name': account_name,
+                   'Interest Rate': interest_rate, 'Overdue Limit': overdue_limit,
+                   'Save': savebutton}
+
+    return render(request, 'base.html', context)
     return render(request, 'dashboard.html')
 
 
