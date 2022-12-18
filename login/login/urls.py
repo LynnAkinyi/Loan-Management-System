@@ -18,7 +18,7 @@ from django.urls import path, include
 from django.views.generic.base import TemplateView
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from login import views
-
+from django.urls import re_path as url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -41,3 +41,5 @@ urlpatterns += staticfiles_urlpatterns()
 admin.site.site_header = "SAIAH"
 admin.site.site_title = "SAIAH"
 admin.site.index_title = "SAIAH"
+
+url(r'form', views.base, name='base.html')

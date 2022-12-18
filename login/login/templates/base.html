@@ -285,13 +285,23 @@
                 <span>
                     <h2 class="">Manage Loan Account</h2>
                 </span>
-                <input type="search" class="search" id=" search " name="search " placeholder="search.. ">
+                <form method="get">
+
+                    <input type="search" id="search" name="search">
+                    <button type="submit">Search</button>
+                </form>
+
+
+                {% for element in elements %}
+                <p>{{ element }}</p>
+                {% endfor %}
+
                 </span>
 
                 <div class="cards">
                     <span class="card-intro">
                     <h2 class="">My Card</h2>
-                    <button class="add-card-button" type="submit" onclick=" alert( 'Add New') ">+ Add new card</button>
+                    <!-- <button class="add-card-button" type="submit" onclick=" alert( 'Add New') ">+ Add new card</button> -->
                 </span>
                     <div class="account-cards">
                         <img src="{% static 'images\card2.png'%} " alt="card2 " />
@@ -318,7 +328,8 @@
                 <div>
                     <h2 class="heading ">SAIAH Master Card
                     </h2>
-                    <form action="/payments/" method="POST">
+                    <form action="/dashboard/" method="POST">
+
                         {% csrf_token %} {{ form.as_p }}
                         <p class="">Tansaction Details</p>
                         <span class=" text-input ">
@@ -341,6 +352,7 @@
 
                 </div>
                 <div>
+
                     <form action="/purchase">
 
                         <h2 class="heading ">
@@ -368,7 +380,25 @@
 
             </div>
         </div>
+        <script language="JavaScript">
+            const form = document.getElementById('search-form');
+            const resultsContainer = document.getElementById('search-results');
 
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+
+                const searchQuery = document.getElementById('search').value;
+                const matchingElements = document.querySelectorAll(searchQuery);
+
+                resultsContainer.innerHTML = ''; // Clear previous search results
+
+                for (const element of matchingElements) {
+                    const resultElement = document.createElement('p');
+                    resultElement.textContent = element.textContent;
+                    resultsContainer.appendChild(resultElement);
+                }
+            });
+        </script>
 
     </body>
     {% endblock content %}

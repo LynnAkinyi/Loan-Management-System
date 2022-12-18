@@ -1,10 +1,10 @@
 
 from django.contrib import admin
 
-from login.models import Purchase
+from login.models import FormData
 
 
-@admin.register(Purchase)
+@admin.register(FormData)
 class PersonAdmin(admin.ModelAdmin):
     pass
 

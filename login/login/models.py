@@ -10,13 +10,10 @@ class UploadImage(models.Model):
         return self.caption
 
 
-class Purchase(models.Model):
-    Last_Name= models.TextField(max_length=25)
+
+class FormData(models.Model):
+    Last_Name = models.TextField(max_length=25)
     First_Name = models.TextField(max_length=25)
     Acount_Number = models.TextField(max_length=25, default='')
     Amount = models.IntegerField()
-
-
-
-
 
